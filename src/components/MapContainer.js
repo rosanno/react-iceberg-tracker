@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { fetchStormData } from '../actions/requestActions'
 import storm from '../assets/iceberg.svg'
 
-const hurricane = new Icon({
+const iceberg = new Icon({
     iconUrl: storm,
     iconSize: [25, 25]
 })
@@ -18,7 +18,7 @@ const MapWrapper = ({ eventData, fetchStormData }) => {
     const marker = eventData && eventData.events && eventData.events.map(event => {
         if (event.categories[0].id === 15) {
               console.log(event.geometries[0].coordinates[1], event.geometries[0].coordinates[0])
-               return <Marker key={event.id} position={[event.geometries[0].coordinates[1], event.geometries[0].coordinates[0]]} icon={hurricane}>
+               return <Marker key={event.id} position={[event.geometries[0].coordinates[1], event.geometries[0].coordinates[0]]} icon={iceberg}>
                    <Popup>
                        {event.categories[0].title}<br/>
                        lat = {event.geometries[0].coordinates[1]}<br/>
